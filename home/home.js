@@ -38,9 +38,7 @@ function allSectionHide() {
     }
 }
 // Add money section functionality
-document
-  .getElementById("add-money-btn")
-  .addEventListener("click", function (e) {
+document.getElementById("add-money-btn").addEventListener("click", function (e) {
     e.preventDefault();
     if (mobileNumber !== mobileNumberConverted("add-money-number")) {
       alert("Account number is invalid");
@@ -81,7 +79,34 @@ document.getElementById("cash-out-btn").addEventListener("click", function (e) {
         }
     }
     resetInputValue(["cash-out-number", "cash-out-amount", "cash-out-pin"]);
+});
 
+//Transfer money section functionality
+document.getElementById("transfer-money-btn").addEventListener("click", function (e) {
+    e.preventDefault()
+    if (mobileNumber !== mobileNumberConverted("transfer-money-number")) {
+      alert("Mobile number is invalid");
+    } else if (pinNumber !== pinNumberConverted("transfer-money-pin")) {
+      alert("Pin number is invalid");
+    } else if (
+      isNaN(amountConverted("transfer-money-amount")) ||
+      amountConverted("transfer-money-amount") < 0
+    ) {
+      alert("Invalid amount given");
+    } else {
+      if (balanceConverted() < amountConverted("transfer-money-amount")) {
+        alert("Insufficient balance");
+      } else {
+        const newBalance =
+          balanceConverted() - amountConverted("transfer-money-amount");
+        document.getElementById("balance").innerText = newBalance;
+      }
+    }
+    resetInputValue([
+      "transfer-money-number",
+      "transfer-money-amount",
+      "transfer-money-pin",
+    ]);
 });
 
 //Add money button functionality
@@ -91,9 +116,16 @@ document.getElementById("add-money-nav-btn").addEventListener("click", function 
     document.getElementById("add-money-section").style.display = "block";
 });
 
-// Cash out  button functionality
+// Cash out button functionality
 document.getElementById("cash-out-nav-btn").addEventListener("click", function (e) {
     e.preventDefault()
     allSectionHide();
     document.getElementById("cash-out-section").style.display = "block";
+});
+
+//Transfer money button functionality
+document.getElementById("transfer-money-nav-btn").addEventListener("click", function (e) {
+    e.preventDefault()
+    allSectionHide()
+    document.getElementById("transfer-money-section").style.display = "block";
 });
