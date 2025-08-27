@@ -11,7 +11,7 @@
     <!-- Font Awesome cdn -->
      <script src="https://kit.fontawesome.com/8ae7856ac2.js" crossorigin="anonymous"></script>
 </head>
-<body class="bg-[#F4F5F7] pb-6">
+<body class="bg-[#F4F5F7] min-h-screen pb-6">
     <header class="bg-white border-b-1 border-[#77777759]">
         <div class="max-w-[600px] mx-auto">
             <nav class="flex justify-between items-center px-6 py-3">
@@ -49,11 +49,11 @@
                     <img src="../assets/money1.png" alt="">
                     <p>Transfer Money</p>
                 </div>
-                <div class="flex flex-col justify-center items-center border-2 border-[rgba(8,8,8,0.1)] rounded-xl w-[120px] h-[90px]">
+                <div id="get-bonus-nav-btn" class="flex flex-col justify-center items-center border-2 border-[rgba(8,8,8,0.1)] rounded-xl w-[120px] h-[90px]">
                     <img src="../assets/bonus1.png" alt="">
                     <p>Get Bonus</p>
                 </div>
-                <div class="flex flex-col justify-center items-center border-2 border-[rgba(8,8,8,0.1)] rounded-xl w-[120px] h-[90px]">
+                <div id="pay-bill-nav-btn" class="flex flex-col justify-center items-center border-2 border-[rgba(8,8,8,0.1)] rounded-xl w-[120px] h-[90px]">
                     <img src="../assets/purse1.png" alt="">
                     <p>Pay Bill</p>
                 </div>
@@ -95,7 +95,7 @@
                 <button id="cash-out-btn" class="text-white bg-[#0874F2] rounded-3xl w-full h-[50px]">Withdraw Money</button>
             </form>
         </section>
-        <section id="transfer-money-section" class="navigation max-w-[600px] mx-auto" style="display: block">
+        <section id="transfer-money-section" class="navigation max-w-[600px] mx-auto" style="display: none">
             <h1 class="text-lg text-[rgba(8,8,8,.9)] font-semibold ml-6 mt-8">Transfer Money</h1>
             <form class="bg-white rounded-3xl m-6 p-6">
                 <label class="font-medium text-[rgba(8,8,8,0.7)]" for="">User Account Number</label>
@@ -107,9 +107,34 @@
                 <button id="transfer-money-btn" class="text-white bg-[#0874F2] rounded-3xl w-full h-[50px]">Send Now</button>
             </form> 
         </section>
-        <section id="get-bonus-section" class="navigation max-w-[600px] mx-auto" style="display: none">i am get bonus section</section>
-        <section id="pay-bill-section" class="navigation max-w-[600px] mx-auto" style="display: none">i am pay bill section</section>
-        <section id="transaction-history-section" class="navigation max-w-[600px] mx-auto" style="display: none"> i am transaction history section</section>
+        <section id="get-bonus-section" class="navigation max-w-[600px] mx-auto" style="display: none">
+            <h1 class="text-lg text-[rgba(8,8,8,.9)] font-semibold ml-6 mt-8">Get Bonus</h1>
+            <form class="bg-white rounded-3xl m-6 p-6">
+                <label class="font-medium text-[rgba(8,8,8,0.7)]" for="">Enter Bonus Coupon</label>
+                <input id="get-bonus-coupon-number" class="border-none font-normal text-[rgba(8,8,8,0.4)] rounded-full bg-[#F4F5F7] w-full h-[50px] px-6 py-4 mt-3 mb-4" type="text" maxlength="11" placeholder="Enter your coupon" required>
+                <button id="get-bonus-btn" class="text-white bg-[#0874F2] rounded-3xl w-full h-[50px]">Get Bonus</button>
+            </form>
+        </section>
+        <section id="pay-bill-section" class="navigation max-w-[600px] mx-auto" style="display: block">
+            <h1 class="text-lg text-[rgba(8,8,8,.9)] font-semibold ml-6 mt-8">Pay Bill</h1>
+            <form class="bg-white rounded-3xl m-6 p-6">
+                <label class="font-medium text-[rgba(8,8,8,0.7)]">Select To Pay</label>
+                <select class="select border-none font-normal text-[rgba(8,8,8,0.4)] rounded-full bg-[#F4F5F7] w-full h-[50px] px-6 py-4 mt-3 mb-4" required>
+                    <option>Electric Bill</option>
+                    <option>Gas Bill</option>
+                    <option>Water Bill</option>
+                    <option>Internet Bill</option>
+                </select>
+                <label class="font-medium text-[rgba(8,8,8,0.7)]" for="">Biller Account Number</label>
+                <input id="pay-bill-number" class="border-none font-normal text-[rgba(8,8,8,0.4)] rounded-full bg-[#F4F5F7] w-full h-[50px] px-6 py-4 mt-3 mb-4" type="text" maxlength="11" placeholder="Enter account number" required>
+                <label class="font-medium text-[rgba(8,8,8,0.7)]" for="">Amount to Pay</label>
+                <input id="pay-bill-amount" class="border-none font-normal text-[rgba(8,8,8,0.4)] rounded-full bg-[#F4F5F7] w-full h-[50px] px-6 py-4 mt-3 mb-4" type="text" placeholder="Add Amount to pay" required>
+                <label class="font-medium text-[rgba(8,8,8,0.7)]" for="">Pin Number</label>
+                <input id="pay-bill-pin" class="border-none font-normal text-[rgba(8,8,8,0.4)] rounded-full bg-[#F4F5F7] w-full h-[50px] px-6 py-4 mt-3 mb-4" type="text" maxlength="4" placeholder="Enter 4 digit pin number" required>
+                <button id="pay-bill-btn" class="text-white bg-[#0874F2] rounded-3xl w-full h-[50px]">Pay Now</button>
+            </form>
+        </section>
+        <section id="transaction-history-section" class="navigation max-w-[600px] mx-auto" style="display: none"></section>
     </main>
     <script src="./home.js"></script>
 </body>
