@@ -1,6 +1,7 @@
 // Reusable code
 const mobileNumber = 11111111111;
 const pinNumber = 1111;
+const transactionData = [];
 
 // Converting user provided number from string to number
 function mobileNumberConverted(id) {
@@ -55,6 +56,11 @@ document
       const newBalance =
         balanceConverted() + amountConverted("add-money-amount");
       document.getElementById("balance").innerText = newBalance;
+      const data = {
+        name: "Add Money",
+        time: new Date().toLocaleTimeString()
+      }
+      transactionData.push(data)
     }
     resetInputValue(["add-money-number", "add-money-amount", "add-money-pin"]);
   });
@@ -78,6 +84,11 @@ document.getElementById("cash-out-btn").addEventListener("click", function (e) {
       const newBalance =
         balanceConverted() - amountConverted("cash-out-amount");
       document.getElementById("balance").innerText = newBalance;
+      const data = {
+        name: "Cash out",
+        time: new Date().toLocaleTimeString(),
+      };
+      transactionData.push(data);
     }
   }
   resetInputValue(["cash-out-number", "cash-out-amount", "cash-out-pin"]);
@@ -102,6 +113,11 @@ document.getElementById("transfer-money-btn").addEventListener("click", function
         const newBalance =
           balanceConverted() - amountConverted("transfer-money-amount");
         document.getElementById("balance").innerText = newBalance;
+        const data = {
+          name: "Send money",
+          time: new Date().toLocaleTimeString(),
+        };
+        transactionData.push(data);
       }
     }
     resetInputValue([
@@ -131,9 +147,35 @@ document.getElementById("pay-bill-btn").addEventListener("click", function (e) {
       const newBalance =
         balanceConverted() - amountConverted("pay-bill-amount");
       document.getElementById("balance").innerText = newBalance;
+      const data = {
+        name: document.getElementById("select-bill").value,
+        time: new Date().toLocaleTimeString(),
+      };
+      transactionData.push(data);
     }
   }
   resetInputValue(["pay-bill-number", "pay-bill-amount", "pay-bill-pin"]);
+});
+
+//Transaction history section functionality
+document.getElementById("transaction-history-nav-btn").addEventListener("click", function (e) {
+  e.preventDefault()
+  const transactionContainer = document.getElementById("transaction-container");
+  transactionContainer.innerHTML = ""
+  for (const data of transactionData) {
+    const history = `<div class="flex justify-between items-center bg-white rounded-xl w-full h-[70px] px-4 py-3 my-3">
+                    <div class="flex gap-2">
+                        <div class="flex justify-center items-center bg-[rgba(8,8,8,0.05)] rounded-full h-11 w-11"><img class="h-6 w-6" src="../assets/wallet1.png" alt=""></div>
+                        <div>
+                            <h1 class="text-[rgba(8,8,8,0.7)] font-semibold">${data.name}</h1>
+                            <p class="text-xs text-[rgba(8,8,8,0.7)]">${data.time}</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-ellipsis-vertical text-xl"></i>
+                </div>
+                `;
+    transactionContainer.insertAdjacentHTML("beforeend", history)
+  }
 });
 
 //Add money button functionality
@@ -178,3 +220,13 @@ document.getElementById("pay-bill-nav-btn").addEventListener("click", function (
   allSectionHide();
   document.getElementById("pay-bill-section").style.display = "block";
 });
+
+//Transaction history button functionality
+document
+  .getElementById("transaction-history-nav-btn")
+  .addEventListener("click", function (e) {
+    e.preventDefault;
+    allSectionHide();
+    document.getElementById("transaction-history-section").style.display =
+      "block";
+  });
