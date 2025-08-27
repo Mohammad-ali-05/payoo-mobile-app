@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payoo</title>
+    <!-- DaisyUI cdn -->
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <!-- tailwind cnd -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Font Awesome cdn -->
+     <script src="https://kit.fontawesome.com/8ae7856ac2.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-[#F4F5F7] pb-6">
+    <header class="bg-white border-b-1 border-[#77777759]">
+        <div class="max-w-[600px] mx-auto">
+            <nav class="flex justify-between items-center px-6 py-3">
+                <div class="flex justify-center items-center gap-2">
+                    <div><img class="w-[50px]" src="../assets/Group.png" alt=""></div>
+                    <div>
+                        <h1 class="font-extrabold">$<span id="balance">45000</span></h1>
+                        <p class="text-[rgba(8,8,8,0.5)]">Available Balance</p>
+                    </div>
+                </div>
+                <div>
+                    <button class="border-2 border-[#0808081a] text-[14px] text-[#666768] rounded-lg w-[100px] h-[40px]" type="button">
+                        <span class="text-[#08080880]"><i class="fa-solid fa-arrow-right-from-bracket rotate-180"></i> Log Out</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="bg-white rounded-b-[26px] p-6 max-w-[600px] mx-auto">
+            <div>
+                <h1 class="font-bold text-2xl mx-auto">🔥 Welcome to Payooo!</h1>
+                <p class="text-[rgba(8,8,8,0.5)] mt-3">Enjoy easy and convenient financial services with us. Cashout charge is low and </p>
+            </div>
+            <div class="grid grid-cols-3 gap-4 mt-6">
+                <div id="add-money-nav-btn" class="flex flex-col justify-center items-center border-2 border-[rgba(8,8,8,0.1)] rounded-xl w-[120px] h-[90px]">
+                    <img src="../assets/wallet1.png" alt="">
+                    <p>Add Money</p>
+                </div>
+                <div id="cash-out-nav-btn" class="flex flex-col justify-center items-center border-2 border-[rgba(8,8,8,0.1)] rounded-xl w-[120px] h-[90px]">
+                    <img src="../assets/send1.png" alt="">
+                    <p>Cashout</p>
+                </div>
+                <div id="transfer-money-nav-btn" class="flex flex-col justify-center items-center border-2 border-[rgba(8,8,8,0.1)] rounded-xl w-[120px] h-[90px]">
+                    <img src="../assets/money1.png" alt="">
+                    <p>Transfer Money</p>
+                </div>
+                <div class="flex flex-col justify-center items-center border-2 border-[rgba(8,8,8,0.1)] rounded-xl w-[120px] h-[90px]">
+                    <img src="../assets/bonus1.png" alt="">
+                    <p>Get Bonus</p>
+                </div>
+                <div class="flex flex-col justify-center items-center border-2 border-[rgba(8,8,8,0.1)] rounded-xl w-[120px] h-[90px]">
+                    <img src="../assets/purse1.png" alt="">
+                    <p>Pay Bill</p>
+                </div>
+                <div class="flex flex-col justify-center items-center border-2 border-[rgba(8,8,8,0.1)] rounded-xl w-[120px] h-[90px]">
+                    <img src="../assets/transaction1.png" alt="">
+                    <p>Transactions</p>
+                </div>
+            </div>
+        </section>
+        <section id="add-money-section" class="navigation max-w-[600px] mx-auto" style="display: none;">
+            <h1 class="text-lg text-[rgba(8,8,8,.9)] font-semibold ml-6 mt-8">Add money</h1>
+            <form class="bg-white rounded-3xl m-6 p-6">
+                <label class="font-medium text-[rgba(8,8,8,0.7)]">Select A Bank</label>
+                <select class="select border-none font-normal text-[rgba(8,8,8,0.4)] rounded-full bg-[#F4F5F7] w-full h-[50px] px-6 py-4 mt-3 mb-4" required>
+                    <option>Islamic Bank</option>
+                    <option>ABC Bank</option>
+                    <option>IFIC Bank</option>
+                    <option>Dutch Bangla Bank</option>
+                    <option>Asian Bank</option>
+                </select>
+                <label class="font-medium text-[rgba(8,8,8,0.7)]" for="">Bank Account Number</label>
+                <input id="add-money-number" class="border-none font-normal text-[rgba(8,8,8,0.4)] rounded-full bg-[#F4F5F7] w-full h-[50px] px-6 py-4 mt-3 mb-4" type="text" maxlength="11" placeholder="Enter 11 digit account number" required>
+                <label class="font-medium text-[rgba(8,8,8,0.7)]" for="">Amount to Add</label>
+                <input id="add-money-amount" class="border-none font-normal text-[rgba(8,8,8,0.4)] rounded-full bg-[#F4F5F7] w-full h-[50px] px-6 py-4 mt-3 mb-4" type="text" placeholder="Enter amount to add" required>
+                <label class="font-medium text-[rgba(8,8,8,0.7)]" for="">Pin Number</label>
+                <input id="add-money-pin" class="border-none font-normal text-[rgba(8,8,8,0.4)] rounded-full bg-[#F4F5F7] w-full h-[50px] px-6 py-4 mt-3 mb-4" type="text" maxlength="4" placeholder="Enter 4 digit pin number" required>
+                <button id="add-money-btn" class="text-white bg-[#0874F2] rounded-3xl w-full h-[50px]">Add Money</button>
+            </form>
+        </section>
+        <section id="cash-out-section" class="navigation max-w-[600px] mx-auto" style="display: none">
+            <h1 class="text-lg text-[rgba(8,8,8,.9)] font-semibold ml-6 mt-8">Cash Out</h1>
+            <form class="bg-white rounded-3xl m-6 p-6">
+                <label class="font-medium text-[rgba(8,8,8,0.7)]" for="">Agent Number</label>
+                <input id="cash-out-number" class="border-none font-normal text-[rgba(8,8,8,0.4)] rounded-full bg-[#F4F5F7] w-full h-[50px] px-6 py-4 mt-3 mb-4" type="text" maxlength="11" placeholder="Enter 11 digit number" required>
+                <label class="font-medium text-[rgba(8,8,8,0.7)]" for="">Amount</label>
+                <input id="cash-out-amount" class="border-none font-normal text-[rgba(8,8,8,0.4)] rounded-full bg-[#F4F5F7] w-full h-[50px] px-6 py-4 mt-3 mb-4" type="text" placeholder="Enter amount to withdraw" required>
+                <label class="font-medium text-[rgba(8,8,8,0.7)]" for="">Pin Number</label>
+                <input id="cash-out-pin" class="border-none font-normal text-[rgba(8,8,8,0.4)] rounded-full bg-[#F4F5F7] w-full h-[50px] px-6 py-4 mt-3 mb-4" type="text" maxlength="4" placeholder="Enter 4 digit pin number" required>
+                <button id="cash-out-btn" class="text-white bg-[#0874F2] rounded-3xl w-full h-[50px]">Withdraw Money</button>
+            </form>
+        </section>
+        <section id="transfer-money-section" class="navigation max-w-[600px] mx-auto" style="display: block">
+            <h1 class="text-lg text-[rgba(8,8,8,.9)] font-semibold ml-6 mt-8">Transfer Money</h1>
+            <form class="bg-white rounded-3xl m-6 p-6">
+                <label class="font-medium text-[rgba(8,8,8,0.7)]" for="">User Account Number</label>
+                <input id="transfer-money-number" class="border-none font-normal text-[rgba(8,8,8,0.4)] rounded-full bg-[#F4F5F7] w-full h-[50px] px-6 py-4 mt-3 mb-4" type="text" maxlength="11" placeholder="Enter 11 digit number" required>
+                <label class="font-medium text-[rgba(8,8,8,0.7)]" for="">Amount</label>
+                <input id="transfer-money-amount" class="border-none font-normal text-[rgba(8,8,8,0.4)] rounded-full bg-[#F4F5F7] w-full h-[50px] px-6 py-4 mt-3 mb-4" type="text" placeholder="Enter amount to transfer" required>
+                <label class="font-medium text-[rgba(8,8,8,0.7)]" for="">Pin Number</label>
+                <input id="transfer-money-pin" class="border-none font-normal text-[rgba(8,8,8,0.4)] rounded-full bg-[#F4F5F7] w-full h-[50px] px-6 py-4 mt-3 mb-4" type="text" maxlength="4" placeholder="Enter 4 digit pin number" required>
+                <button id="transfer-money-btn" class="text-white bg-[#0874F2] rounded-3xl w-full h-[50px]">Send Now</button>
+            </form> 
+        </section>
+        <section id="get-bonus-section" class="navigation max-w-[600px] mx-auto" style="display: none">i am get bonus section</section>
+        <section id="pay-bill-section" class="navigation max-w-[600px] mx-auto" style="display: none">i am pay bill section</section>
+        <section id="transaction-history-section" class="navigation max-w-[600px] mx-auto" style="display: none"> i am transaction history section</section>
+    </main>
+    <script src="./home.js"></script>
+</body>
+</html>

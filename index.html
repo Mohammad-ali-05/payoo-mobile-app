@@ -9,7 +9,23 @@
     <!-- tailwind cnd -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-    
+<body class="bg-[#F4F5F7] h-[100vh] flex justify-center items-center">
+    <section class="flex flex-col justify-center items-center ">
+        <div class="bg-[url(./assets/bg.png)] bg-cover flex justify-center items-center w-[315px] h-[130px]">
+            <img src="./assets/Group.png" alt="">
+        </div>
+        <form class="bg-[#FFFFFF] w-[400px] rounded-3xl p-8">
+            <div>
+                <label for="" class="text-[#080808] font-medium">Mobile Number</label> <br>
+                <input type="text" name="" id="account-number" class="border-none rounded-3xl px-5 py-4 bg-[#F4F5F7] w-full h-[50px] mt-3" minlength="11" maxlength="11" placeholder="Enter your number" required>
+            </div>
+            <div class="my-4">
+                <label for="" class="text-[#080808] font-medium">4 Digit Pin</label> <br>
+                <input type="text" name="" id="pin-number" class="border-none rounded-3xl px-5 py-4 bg-[#F4F5F7] w-full h-[50px] mt-3" minlength="4" maxlength="4" placeholder="Enter 4 Digit Pin" required>
+            </div>
+            <button id="login-btn" class="text-white bg-[#0874F2] rounded-3xl w-full h-[50px]">Login</button>
+        </form>
+    </section>
+    <script src="index.js"></script>
 </body>
 </html>
